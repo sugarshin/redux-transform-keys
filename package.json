@@ -1,6 +1,6 @@
 {
   "name": "redux-transform-keys",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "FSA-compliant transform keys of payload object middleware for Redux",
   "main": "lib/index.js",
   "module": "es/index.js",
