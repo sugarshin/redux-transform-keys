@@ -23,6 +23,7 @@
     "prettier": "prettier --write",
     "test": "jest",
     "test:coverage": "npm test -- --coverage",
+    "upload:coverage-report": "codecov",
     "clean:lib": "if [ -d lib ]; then rm -rf lib; fi",
     "clean:es": "if [ -d es ]; then rm -rf es; fi",
     "clean": "npm run clean:lib && npm run clean:es",

@@ -1,0 +1,50 @@
+version: 2
+jobs:
+  test: &test
+    docker:
+      - image: node:8.11.2
+    working_directory: ~/redux-transform-keys
+    steps:
+      - checkout
+      - restore_cache: &restore_cache
+          keys:
+            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ .Branch }}
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: TSLint
+          command: yarn run lint
+      - run:
+          name: Testing
+          command: yarn test
+      - run:
+          name: Upload Coverage Report
+          command: yarn run upload:coverage-report
+      - save_cache:
+          paths:
+            - ~/redux-transform-keys/node_modules
+            - ~/.cache/yarn/
+          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+  deploy:
+    <<: *test
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run:
+          name: Deploy
+          command: echo "No deploy specified"
+
+workflows:
+  version: 2
+  redux-transform-keys:
+    jobs:
+      - test
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
