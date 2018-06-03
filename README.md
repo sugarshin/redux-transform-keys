@@ -73,3 +73,12 @@ You can use `'camelCase'` , `'snakeCase'` or `'kebabCase'` .
 [MIT][license-url]
 
 © sugarshin
+
+[circleci-image]: https://circleci.com/gh/sugarshin/redux-transform-keys/tree/master.svg?style=svg&circle-token=4456ba5b2897404d4250f610c1bb64ebef437a30
+[circleci-url]: https://circleci.com/gh/sugarshin/redux-transform-keys/tree/master
+[codecov-image]: https://codecov.io/gh/sugarshin/redux-transform-keys/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/sugarshin/redux-transform-keys
+[npm-image]: https://img.shields.io/npm/v/redux-transform-keys.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/redux-transform-keys
+[license-image]: https://img.shields.io/:license-mit-blue.svg?style=flat-square
+[license-url]: https://sugarshin.mit-license.org/
