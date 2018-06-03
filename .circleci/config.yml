@@ -17,8 +17,8 @@ jobs:
           name: TSLint
           command: yarn run lint
       - run:
-          name: Testing
-          command: yarn test
+          name: Testing and Upload Coverage Report
+          command: yarn run test:coverage
       - run:
           name: Upload Coverage Report
           command: yarn run upload:coverage-report
