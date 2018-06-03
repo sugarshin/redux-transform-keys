@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "declaration": true,
+    "strict": true,
+    "pretty": true,
+    "lib": ["ES2015", "DOM"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "es", "lib", "**/*.test.ts"]
+}

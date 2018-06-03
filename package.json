@@ -1,0 +1,88 @@
+{
+  "name": "redux-transform-keys",
+  "version": "0.0.0",
+  "description": "FSA-compliant transform keys of payload object middleware for Redux",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [
+    "redux",
+    "transform-keys",
+    "middleware",
+    "redux-middleware",
+    "fsa",
+    "flux"
+  ],
+  "scripts": {
+    "lint": "tslint src/**/*.ts",
+    "prettier": "prettier --write",
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "clean:lib": "if [ -d lib ]; then rm -rf lib; fi",
+    "clean:es": "if [ -d es ]; then rm -rf es; fi",
+    "clean": "npm run clean:lib && npm run clean:es",
+    "precompile": "npm run clean",
+    "compile:commonjs": "tsc --outDir lib --module commonjs",
+    "compile:es": "tsc --outDir es --module es2015 --moduleResolution Node",
+    "compile": "npm run compile:commonjs && npm run compile:es"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sugarshin/redux-transform-keys.git"
+  },
+  "author": "Shingo Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sugarshin/redux-transform-keys/issues"
+  },
+  "homepage": "https://github.com/sugarshin/redux-transform-keys#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run prettier",
+      "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "deep-map-keys": "^1.2.0",
+    "flux-standard-action": "^2.0.3",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/lodash": "^4.14.109",
+    "codecov": "^3.0.2",
+    "husky": "^1.0.0-rc.8",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.13.3",
+    "redux": "^4.0.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.8.4"
+  }
+}
