@@ -3,14 +3,21 @@ import { isBoolean } from 'lodash';
 import { transformers } from './transformers';
 import { transformKeys } from './transformKeys';
 import { isCaseStyleOrElse } from './utils/isCaseStyleOrElse';
-
 import { MapFn } from 'deep-map-keys/lib/deep-map-keys.d';
 import { AnyAction, Dispatch, Middleware } from 'redux';
-import { Action, CaseStyle, MiddlewareOption } from './types';
 
-export const createTransformKeysMiddleware = (
-  option: MiddlewareOption
-): Middleware => {
+export type CaseStyle = 'camelCase' | 'snakeCase' | 'kebabCase';
+
+export interface IOption {
+  ignoreOnError?: boolean;
+  caseStyle: CaseStyle;
+}
+
+export interface IAction extends AnyAction {
+  payload: any;
+}
+
+export const createTransformKeysMiddleware = (option: IOption): Middleware => {
   const ignoreOnError: boolean = isBoolean(option.ignoreOnError)
     ? option.ignoreOnError
     : true;
@@ -22,7 +29,7 @@ export const createTransformKeysMiddleware = (
   }
   const defaultTransformer = transformers[caseStyle];
 
-  return () => (next: Dispatch) => (action: Action) => {
+  return () => (next: Dispatch) => (action: IAction) => {
     const { meta } = action;
     if (
       isFSA(action) &&
