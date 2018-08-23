@@ -3,11 +3,8 @@
   "version": "0.0.1",
   "description": "FSA-compliant transform keys of payload object middleware for Redux",
   "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
   "typings": "lib/index.d.ts",
   "files": [
-    "es",
     "lib"
   ],
   "keywords": [
@@ -25,12 +22,10 @@
     "test:coverage": "npm test -- --coverage",
     "upload:coverage-report": "codecov",
     "clean:lib": "if [ -d lib ]; then rm -rf lib; fi",
-    "clean:es": "if [ -d es ]; then rm -rf es; fi",
-    "clean": "npm run clean:lib && npm run clean:es",
+    "clean": "npm run clean:lib",
     "precompile": "npm run clean",
     "compile:commonjs": "tsc --outDir lib --module commonjs",
-    "compile:es": "tsc --outDir es --module es2015 --moduleResolution Node",
-    "compile": "npm run compile:commonjs && npm run compile:es",
+    "compile": "npm run compile:commonjs",
     "prepublishOnly": "npm run lint && npm test && npm run compile"
   },
   "repository": {
@@ -74,17 +69,17 @@
     "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "@types/jest": "^23.0.0",
-    "@types/lodash": "^4.14.109",
-    "codecov": "^3.0.2",
-    "husky": "^1.0.0-rc.8",
-    "jest": "^23.1.0",
-    "lint-staged": "^7.1.2",
-    "prettier": "^1.13.3",
+    "@types/jest": "^23.3.1",
+    "@types/lodash": "^4.14.116",
+    "codecov": "^3.0.4",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.5.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
     "redux": "^4.0.0",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.10.0",
-    "tslint-config-prettier": "^1.13.0",
-    "typescript": "^2.8.4"
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.1"
   }
 }

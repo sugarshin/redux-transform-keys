@@ -1,6 +1,5 @@
 import { createStore } from 'redux';
-import createMiddleware from '../src';
-import { CaseStyle, MiddlewareOption } from '../src/types';
+import createMiddleware, { CaseStyle } from '../src';
 
 const CAMEL_CASE: CaseStyle = 'camelCase';
 
